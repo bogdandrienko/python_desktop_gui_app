@@ -1,4 +1,6 @@
 import pyodbc as pyodbc
+
+
 conn_str = (
         r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=tcp:' + '192.168.15.87' + '\\' + 'DESKTOP-SM7K050' + ',' + '1434' +
         ';DATABASE=' + 'thirdpartydb' + ';UID=' + 'sa' + ';PWD=' + 'skud12345678' + ';'

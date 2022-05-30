@@ -1,7 +1,7 @@
 import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
 import httplib2
+
 
 ips = "192.168.1.207, 192.168.1.208, 192.168.8.220, 192.168.8.221, 192.168.15.131, " \
       "192.168.15.132, 192.168.15.133, 192.168.15.134, 192.168.15.135, 192.168.15.136, " \
