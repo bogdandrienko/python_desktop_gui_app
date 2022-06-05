@@ -38,7 +38,7 @@ pip install django django-cors-headers Pillow lxml djangorestframework
 mkdir django_project
 chdir django_project
 django-admin startproject backend_settings .
-django-admin startapp backend
+django-admin startapp app_django
 
 # set /p app_name= "Please enter the 'app_name':  "
 # IF "%app_name%"=="" (set app_name="app_name")
@@ -46,7 +46,7 @@ django-admin startapp backend
 
 python manage.py makemigrations
 python manage.py migrate
-python manage.py createsuperuser --username Bogdan --email bogdandrienko@gmail.com
+python manage.py createsuperuser --username bogdan --email bogdandrienko@gmail.com
 python manage.py collectstatic --noinput
 python manage.py runserver 0.0.0.0:8000
 python manage.py runserver 0:8000
@@ -60,9 +60,12 @@ cd ..\
 mkdir frontend
 cd frontend
 npm install axios react-redux react-router-dom react-bootstrap react-router-bootstrap react-player prettier
-npx -y create-react-app frontend --template pwa-typescript
-npx -y create-react-app frontend
-npm start
+npx -y create-react-app . --template pwa-typescript
+npx -y create-react-app . --template cra-template-pwa
+npx -y create-react-app . --template cra-template-pwa-typescript
+npx -y create-react-app . --template redux-typescript
+npx -y create-react-app .
+npm run start
 
 ################### LINUX ##############################################################################################
 
@@ -233,18 +236,30 @@ sudo apt upgrade -y
 sudo apt -y install openssh-server
 sudo systemctl start ssh
 sudo systemctl enable ssh
+ip a
 sudo adduser bogdan vboxsf
 ###########
-sudo apt -y install net-tools htop git
-sudo apt -y install nginx gunicorn python3-pip python3-dev python3-venv build-essential libpq-dev unixodbc-dev postgresql postgresql-contrib
+sudo apt -y install net-tools htop git curl nginx
+sudo apt -y install gunicorn python3-pip python3-dev python3-venv build-essential libpq-dev unixodbc-dev postgresql postgresql-contrib
+sudo apt -y install nodejsp
 sudo snap install --classic certbot
 sudo snap install gh
 sudo usermod -aG bogdan www-data
+
+# node js
+sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm list-remote
+nvm install node
+
 sudo reboot
 ###########
 # sudo rm /etc/nginx/sites-enabled/web-km-kz-http.conf # Удалить файл в папке
 # rmdir /Q /S react
 # mkdir react
+# cd react
 # move frontend/build react
 
 # DJANGO PROJECT
